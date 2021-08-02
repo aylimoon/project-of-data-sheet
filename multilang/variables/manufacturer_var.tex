@@ -1,0 +1,44 @@
+%---Используемые переменные (справочный раздел)--- % Коммент этого сектора должен быть всегда, этот сектор для справки
+
+%\newcommand{\productmainview}{lapvision-standart} % внешний вид продукта    
+%\newcommand{\productsertificate}{ce_sertificate_em} % сертификат продукта    
+
+%\newcommand{\productserialnumber}{/\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_/}
+%\newcommand{\productiondate}{2019}  %дата производства
+
+%\newcommand{\imagelogo}{medvision} % Лого на титульном листе
+%\newcommand{\productmadein}{Сделано в} % страна производства   
+%\newcommand{\manufacturername}{ООО~«Эйдос-Медицина»} %название компании
+%\newcommand{\address}{420107,  Россия, г.~Казань, ул.~Петербургская, д.50}
+%\newcommand{\phone}{+7 (843) 227-40-63} 
+%\newcommand{\email}{mail@oooeidos.ru}
+
+%---Используемые переменные (справочный раздел)---
+
+
+\newcommand{\productserialnumber}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} %общий
+\newcommand{\productiondate}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} %общий
+
+\ifIsLngRus % русский язык
+
+    %{ООО "Эйдос-Медицина}
+    \newcommand{\imagelogo}{medvision} %общий
+    \newcommand{\productsertificate}{ce_sertificate_em} %общий
+    \newcommand{\manufacturername}{ООО~«Эйдос-Медицина»} %общий
+    \newcommand{\address}{420107,  Россия, г.~Казань, ул.~Петербургская, д.50} %общий
+    \newcommand{\phone}{+7 (843) 227-40-63} %общий
+    \newcommand{\email}{mail@oooeidos.ru} %общий
+    \newcommand{\productmadein}{Россия} %общий
+
+\else % определение переменных на английском языке
+
+    %{ООО "Эйдос-Медицина}
+    \newcommand{\imagelogo}{medvision} %общий
+    \newcommand{\productsertificate}{ce_sertificate_em} %общий
+    \newcommand{\manufacturername}{Eidos-Medicine LLC} %общий
+    \newcommand{\address}{50, Peterburgskaya Str., 23/33, Kazan 420107, Republic of Tatarstan} %общий
+    \newcommand{\phone}{+7 (843) 227-40-63} %общий
+    \newcommand{\email}{mail@oooeidos.ru} %общий
+    \newcommand{\productmadein}{Russia} %общий
+
+\fi

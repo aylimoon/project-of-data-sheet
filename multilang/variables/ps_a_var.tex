@@ -1,0 +1,572 @@
+% РП.В PS.A Симулятор взрослого пациента 
+
+%---Используемые переменные (справочный раздел)--- % Коммент этого сектора должен быть всегда, этот сектор для справки
+% используются в операторах case
+%\newcommand{\typesimulator}{0}   %тип симулятора (используется в операторе кейс) значения (0,1,2)=(Б,С,Г)
+%\newcommand{\typemanufacturer}{0} % выбор компании
+
+%обычные переменные
+%\newcommand{\producttype}{Б.ЛПР} %тип продукта    
+%\newcommand{\productname}{Виртуальный симулятор лапароскопии}
+%\newcommand{\productmainview}{lapvision-standart} % внешний вид продукта    
+%\newcommand{\productsertificate}{ce_sertificate_em} % сертификат продукта    
+%\newcommand{\producttrademark}{LapVision} % торговое наименование симулятора
+%\newcommand{\producttrademarktype}{Standart} % торговое наименование типа симулятора
+
+%\newcommand{\productserialnumber}{/\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_/}
+%\newcommand{\productiondate}{2019}  %дата производства
+
+%\newcommand{\productmadein}{Сделано в} % страна производства   
+%\newcommand{\manufacturername}{ООО~«Эйдос-Медицина»} %название компании
+%\newcommand{\address}{420107,  Россия, г.~Казань, ул.~Петербургская, д.50}
+%\newcommand{\phone}{+7 (843) 227-40-63} 
+%\newcommand{\email}{mail@oooeidos.ru}
+
+%\newcommand{\producttechchar} % Технические характеристики симулятора
+    %\newcommand{\producttechchardimension} % Габаритные размеры симулятора
+    %\newcommand{\producttechcharweighs} % Вес симулятора 
+%\newcommand{\productequip} % Комплектация симулятора
+%---Используемые переменные (справочный раздел)---
+
+
+\ifdefined \typesimulator
+\else
+%{
+%---Определение типа симулятора---  что-то одно всегда должно быть включено
+%\newcommand{\typesimulator}{0}   % РП.В.ХФ Симулятор взрослого пациента 
+%\newcommand{\typesimulator}{1}   % РП.В.ЭС Симулятор взрослого пациента
+%\newcommand{\typesimulator}{2}   % РП.В.Б Симулятор взрослого пациента
+\newcommand{\typesimulator}{3}   % РП.В.СЛР Симулятор взрослого пациента
+%\newcommand{\typesimulator}{4}     % Ручная модификация, если комплектацию и тип симулятора нужно вбить в ручную 
+                                    %(редактировать ниже в операторе ifcase \typesimulator    на 3 позиции)
+%---Определение типа симулятора---
+%}
+\fi
+
+%\IsLngRusfalse % Можно использовать при отладке, но не забыть закомментировать перед компиляцией bat файлом
+
+% Определение общих переменных (рус и англ)
+
+\newcommand{\producttrademark}{LEONARDO}
+\newcommand{\producttrademarknameone}{LEONARDO}
+\newcommand{\producttrademarknametwo}{Vision}
+\newcommand{\producttrademarknametitul}
+{
+\large\textbf{\textcolor{TradeMarkNameOneColor}{\producttrademarknameone}~\textcolor{TradeMarkNameOneColor}{\producttrademarktype}}
+}
+\newcommand{\producttechcharvoltage}{110 - 220} % Напряжение питания
+
+\ifcase \typesimulator   % кейс для всех языков
+% РП.В.ХФ 
+\newcommand{\productmainview}{Leonardo}
+\newcommand{\producttrademarktype}{HF}
+\ifIsLngRus\newcommand{\producttechchardimension}{1850x600x300}\else\newcommand{\producttechchardimension}{1,850x600x300}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{130} % Вес симулятора
+\newcommand{\producttechcharpower}{500} % Потребляемая мощность
+
+\or
+% РП.В.ЭС
+\newcommand{\productmainview}{PS_A-ES_1}
+\newcommand{\producttrademarktype}{Essential}
+\ifIsLngRus\newcommand{\producttechchardimension}{1850x600x300}\else\newcommand{\producttechchardimension}{1,850x600x300}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{130} % Вес симулятора
+\ifIsLngRus\newcommand{\producttechcharpower}{500}\else\newcommand{\producttechcharpower}{1,000}\fi % Потребляемая мощность
+
+\or
+% РП.В.Б
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{BLS}
+\ifIsLngRus\newcommand{\producttechchardimension}{1200x600x300}\else\newcommand{\producttechchardimension}{1,200x600x300}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{60} % Вес симулятора
+\newcommand{\producttechcharpower}{2000} % Потребляемая мощность
+
+\or
+% РП.В.СЛР
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{CPR}
+\ifIsLngRus\newcommand{\producttechchardimension}{1200x600x300}\else\newcommand{\producttechchardimension}{1,200x600x300}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{60} % Вес симулятора
+\newcommand{\producttechcharpower}{500} % Потребляемая мощность
+
+\else
+% Ручная модификация
+\newcommand{\productmainview}{}
+\newcommand{\producttrademarktype}{NoName}
+\newcommand{\producttechchardimension}{XXXхXXхXXXXX} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{XXX} % Вес симулятора
+\newcommand{\producttechcharpower}{XXX} % Потребляемая мощность
+
+\fi
+
+%\IsLngRusfalse % Можно использовать при отладке, но не забыть закомментировать перед компиляцией bat файлом
+\ifIsLngRus % определение переменных на русском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Симулятор взрослого пациента}
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    % РП.П.ХФ
+
+    \newcommand{\producttype}{РП.В.ХФ}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Симулятор пациента & \\ \hline
+        Зарядное устройство симулятора пациента & \\ \hline
+
+        Адаптер & \\ \hline
+        Зарядное устройство Адаптера & \\ \hline
+        Кабель Адаптера на 4 электрода & \\ \hline
+        Кабель-переходник Адаптер - канал ЭКГ & \\ \hline
+        Кабель-переходник Адаптер - канал ЭКС & \\ \hline
+        Кабель переходник Адаптер - канал SpO2 & \\ \hline
+        Накладки дефибриллятора & \\ \hline
+        Смартскоп & \\ \hline
+        Зарядное устройство Смартскопа & \\ \hline
+        Тонометр с фонендоскопом & \\ \hline
+        Пульсоксиметр & \\ \hline
+        Папка с метками лекарственных препаратов и шприцами различного объема & \\ \hline
+        
+        Сменный кадык малый & \\ \hline
+        
+        Накладка "Травма руки" & \\ \hline
+        
+        Накладка "Травма ноги" & \\ \hline
+        
+        Модуль "Оторванная рука" & \\ \hline
+        
+        Модуль "Оторванная нога" & \\ \hline
+        
+        Бутыль заправочная (кровь) & \\ \hline
+        
+        Бутыль заправочная (вода) & \\ \hline
+        
+        Бутыль для стравливания воздуха & \\ \hline
+        
+        Лубрикант (флакон-распылитель со смазкой) & \\ \hline
+        
+        Порт внутривенного вливания & \\ \hline
+        
+        Расходные материалы для внутрикостного вливания & \\ \hline
+        
+        Расходные материалы для коникотомии & \\ \hline
+        
+        Расходные материалы ЭКГ & \\ \hline
+        
+        Заправочный модуль оторванной конечности & \\ \hline
+        
+        Подставка для заправочных емкостей & \\ \hline
+        
+        Заглушка на порт мочеиспускания & \\ \hline
+        
+        Ключ для замены полового органа & \\ \hline
+        
+        Ключ модуля внутрикостного вливания & \\ \hline
+        
+        Шарф силиконовый (для конечностей) & \\ \hline
+        
+        Шарф силиконовый (на шею) & \\ \hline
+        
+        Одежда: шорты & \\ \hline
+        
+        Ноутбук & \\ \hline
+        
+        Моноблок & \\ \hline
+        
+        Сенсорный монитор & \\ \hline
+        
+        Wi-Fi роутер & \\ \hline
+        
+        Web-камера & \\ \hline
+        
+        Наушники с микрофоном & \\ \hline
+        
+        Сетевой фильтр & \\ \hline
+        
+        Технический паспорт изделия & \\ \hline
+        
+        Руководство по эксплуатации & \\ \hline      
+        
+    }
+
+    \or
+
+    % РП.П.ЭС
+    \newcommand{\producttype}{РП.В.ЭС}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Симулятор пациента & \\ \hline
+        Зарядное устройство симулятора пациента & \\ \hline
+        
+        Адаптер & \\ \hline
+        Зарядное устройство Адаптера & \\ \hline
+        Кабель Адаптера на 4 электрода & \\ \hline
+        Кабель-переходник Адаптер - канал ЭКГ & \\ \hline
+        Кабель-переходник Адаптер - канал ЭКС & \\ \hline
+        Кабель переходник Адаптер - канал SpO2 & \\ \hline
+        Накладки дефибриллятора & \\ \hline
+        Смартскоп & \\ \hline
+        Зарядное устройство Смартскопа & \\ \hline
+        Тонометр с фонендоскопом & \\ \hline
+        Пульсоксиметр & \\ \hline
+        Папка с метками лекарственных препаратов и шприцами различного объема & \\ \hline
+        
+        Сменный кадык малый & \\ \hline
+        
+        Лубрикант (флакон-распылитель со смазкой) & \\ \hline
+        
+        Порт внутривенного вливания & \\ \hline
+        
+        Расходные материалы для внутрикостного вливания & \\ \hline
+        
+        Расходные материалы для коникотомии & \\ \hline
+        
+        Расходные материалы ЭКГ & \\ \hline
+        
+        Заглушка на порт мочеиспускания & \\ \hline
+        
+        Ключ для замены полового органа & \\ \hline
+        
+        Ключ модуля внутрикостного вливания & \\ \hline
+        
+        Шарф силиконовый (для конечностей) & \\ \hline
+        
+        Шарф силиконовый (на шею) & \\ \hline
+        
+        Одежда: шорты & \\ \hline
+        
+        Ноутбук & \\ \hline
+        
+        Моноблок & \\ \hline
+        
+        Сенсорный монитор & \\ \hline
+        
+        Wi-Fi роутер & \\ \hline
+        
+        Web-камера & \\ \hline
+        
+        Наушники с микрофоном & \\ \hline
+        
+        Сетевой фильтр & \\ \hline
+        
+        Технический паспорт изделия & \\ \hline
+        
+        Руководство по эксплуатации & \\ \hline
+        
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline    
+    }
+    \or
+
+    % РП.П.Б 
+    \newcommand{\producttype}{РП.В.Б}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+    \or
+
+    % РП.П.СЛР
+    \newcommand{\producttype}{РП.В.СЛР}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Торс симулятора пациента & \\ \hline
+        Мешок дыхательный типа Амбу & \\ \hline
+        Ларингеальная маска & \\ \hline
+        Трубка для назальной интубации 6 мм & \\ \hline
+        Трубка эндотрахеальная 6 мм & \\ \hline
+        Трубка эндотрахеальная 8 мм & \\ \hline
+        Нагнетатель для тонометра & \\ \hline
+        Сменный кадык малый & \\ \hline
+        Лубрикант (флакон-распылитель со смазкой) & \\ \hline
+        Расходные материалы для коникотомии & \\ \hline
+        Ноутбук & \\ \hline
+        Кабель USB A-B & \\ \hline
+        
+        Технический паспорт изделия & \\ \hline
+        
+        Руководство по эксплуатации & \\ \hline
+        
+        &\\ \hline 
+    }
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }
+    \fi
+    %---Определение переменных зависящих от типа симулятора---
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\else % определение переменных на английском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Adult Patient Simulator}
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    
+    % PS.P.HF
+    \newcommand{\producttype}{PS.A.HF}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Patient simulator & \\ \hline
+        Simulator battery charger & \\ \hline
+        
+        Adapter & \\ \hline
+        Adapter charger & \\ \hline
+        4-electrode adapter cable & \\ \hline
+        Adapter - ECG channel conversion cable & \\ \hline
+        Adapter - Pacing channel conversion cable & \\ \hline
+        Adapter - SpO2 channel conversion cable & \\ \hline
+        Defibrillator pads & \\ \hline
+        Smartscope & \\ \hline
+        Smartscope charger & \\ \hline
+        Blood pressure monitor with phonendoscope  & \\ \hline
+        Pulse oximeter & \\ \hline
+        Folder with tags for drugs and syringes of a different volume  & \\ \hline
+        
+        Indistinct Adam’s apple & \\ \hline
+        
+        Arm injury pad & \\ \hline
+        
+        Leg injury pad & \\ \hline
+        
+        Shot-away arm module & \\ \hline
+        
+        Shot-away leg module & \\ \hline
+        
+        Refill bottle (blood) & \\ \hline
+        
+        Refill bottle (water) & \\ \hline
+        
+        Air drain tank & \\ \hline
+        
+        Lubricant (spray) & \\ \hline
+        
+        IV port & \\ \hline
+        
+        Intraosseous infusion consumables & \\ \hline
+        
+        Cricothyrotomy performance consumables & \\ \hline
+        
+        ECG consumables & \\ \hline
+        
+        Shot-away limb refill module & \\ \hline
+        
+        Refill bottles holder & \\ \hline
+        
+        Urination port protective cap & \\ \hline
+        
+        Genitals replacement key & \\ \hline
+        
+        Intraosseous infusion unit key  & \\ \hline
+        
+        Silicone pad (for limbs) & \\ \hline
+        
+        Silicone pad (for neck) & \\ \hline
+        
+        Clothing (shorts) & \\ \hline
+        
+        Laptop & \\ \hline
+        
+        All-in-one PC & \\ \hline
+        
+        Touchscreen monitor & \\ \hline
+        
+        Wi-Fi router & \\ \hline
+        
+        Webcam & \\ \hline
+        
+        Headset & \\ \hline
+        
+        Power strip & \\ \hline
+        
+        Product Data Sheet & \\ \hline
+        
+        User Manual & \\ \hline
+
+    
+    }
+
+    \or
+
+    %PS.P.ES
+    \newcommand{\producttype}{PS.A.ES}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Patient simulator & \\ \hline
+        Simulator battery charger & \\ \hline
+        
+        Adapter & \\ \hline
+        Adapter charger & \\ \hline
+        4-electrode adapter cable & \\ \hline
+        Adapter - ECG channel conversion cable & \\ \hline
+        Adapter - Pacing channel conversion cable & \\ \hline
+        Adapter - SpO2 channel conversion cable & \\ \hline
+        Defibrillator pads & \\ \hline
+        Smartscope & \\ \hline
+        Smartscope charger & \\ \hline
+        Blood pressure monitor with phonendoscope  & \\ \hline
+        Pulse oximeter & \\ \hline
+        Folder with tags for drugs and syringes of a different volume  & \\ \hline
+        
+        Indistinct Adam’s apple & \\ \hline
+        
+        Lubricant (spray) & \\ \hline
+        
+        IV port & \\ \hline
+        
+        Intraosseous infusion consumables & \\ \hline
+        
+        Cricothyrotomy performance consumables & \\ \hline
+        
+        ECG consumables & \\ \hline
+        
+        Urination port protective cap & \\ \hline
+        
+        Genitals replacement key & \\ \hline
+        
+        Intraosseous infusion unit key  & \\ \hline
+        
+        Silicone pad (for limbs) & \\ \hline
+        
+        Silicone pad (for neck) & \\ \hline
+        
+        Clothing (shorts) & \\ \hline
+        
+        Laptop & \\ \hline
+        
+        All-in-one PC & \\ \hline
+        
+        Touchscreen monitor & \\ \hline
+        
+        Wi-Fi router & \\ \hline
+        
+        Webcam & \\ \hline
+        
+        Headset & \\ \hline
+        
+        Power strip & \\ \hline
+        
+        Product Data Sheet & \\ \hline
+        
+        User Manual & \\ \hline  
+        
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline    
+    }
+    \or
+
+    %PS.P.B
+    \newcommand{\producttype}{PS.A.B}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+    \or
+
+    % PS.P.CPR
+    \newcommand{\producttype}{PS.A.CPR}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+              
+        &\\ \hline 
+    }
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }  
+    \fi
+    %---Определение переменных зависящих от типа симулятора--- 
+
+\fi
+
+
+
+
+
+
+
+
+
+
+

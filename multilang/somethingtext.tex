@@ -1,0 +1,146 @@
+%\IsLngRusfalse
+\ifIsLngRus  % русский язык
+{
+}
+\fi
+%\IsLngEngfalse
+\ifIsLngEng  % английский язык
+{
+}
+\fi
+
+
+
+
+\ifdefined\typemanufacturer
+\else
+%---Определение типа компании---  что-то одно всегда должно быть включено
+\newcommand{\typemanufacturer}{0}   % ООО "Эйдос-Медицина" логотип "Медвижн"
+%\newcommand{\typemanufacturer}{1}   % Другая компания и логотип
+%---Определение типа компании---  
+\fi
+
+
+
+%---Определение значения переменных зависящих от типа компании--- 
+\ifcase \typemanufacturer
+%{ООО "Эйдос-Медицина}
+
+
+\or 
+
+%{Другая компания}
+\newcommand{\imagelogo}{image-not-found}
+\newcommand{\productsertificate}{image-not-found}
+\newcommand{\manufacturername}{ООО~«ХХХХХХХХХ»}
+\newcommand{\address}{ХХХХХХХХХХХХХХХХ}
+\newcommand{\phone}{ХХХХХХХХХХХХХХ}
+\newcommand{\email}{ХХХХХХХХХХХХ}
+\fi
+%---Определение значения переменных зависящих от типа компании--- 
+
+
+%---Определение значения переменных по умолчанию--- 
+
+
+
+\ifdefined\simulatorflag
+Флаг определен Flag defined qqq
+Флаг равен \simulatorflag
+%Флаг второй равен \brandf
+%\newcommand{\branding}[1]{\input{../../branding1}}
+    \ifcase \simulatorflag
+    Значение Лапаро Тип \typesimulator
+    \include{\lng/var_default}
+    \or
+    Значение ВЭД.БГК Тип \typesimulator
+    \include{\lng/var_default_end}
+    \or
+    Значение 2
+    \else
+    Значение другое
+    \fi
+\else
+Флаг не определен Flag is not defined d
+\include{\lng/var_default}
+%\newcommand{\branding}[1]{\input{../../branding2}}
+\fi
+
+
+
+
+\begin{figure}[h]
+    %\includegraphics[width=0.77\linewidth]{images/\imagelogo}
+    \includegraphics[width=1\linewidth]{images/\imagelogo}
+\end{figure}
+%\ifIsEnsim
+%\begin{figure}[h]
+% \includegraphics[width=0.77\linewidth]{images/logo}
+%\includegraphics[width=0.77\linewidth]{images/medvision}
+%\end{figure}
+%\else
+%\begin{figure}[h]
+%\includegraphics[width=0.77\linewidth]{images/med-x}
+%\end{figure}
+%\fi
+
+% %{\Huge\textbf{
+% {\Huge\textbf{\textcolor{clColontitulText}{
+% \hspace{0.65cm} РУКОВОДСТВО \\ 
+% \indent \hspace{1cm}ПОЛЬЗОВАТЕЛЯ \\
+% }}\par}
+% %}\par}
+        
+%\vspace{2cm}
+\vspace*{\fill}
+
+\noindent
+%{\Huge\textbf{\textcolor{white}{
+{\Huge\textbf{\textcolor{clColontitulText}{
+ТЕХНИЧЕСКИЙ\\ 
+ПАСПОРТ ИЗДЕЛИЯ
+}}\par}
+
+\vspace*{\fill}
+\vspace*{\fill}
+
+\begin{flushleft}
+    
+    \noindent   
+    
+    %{\Large\textbf{\textcolor{white}{
+    {\Large\textbf{\textcolor{clColontitulText}{
+        Симулятор~\producttype        
+    }}\par}
+
+    \vspace*{\fill}
+
+    \noindent   
+    
+    %{\Large\textbf{\textcolor{white}{
+    {\Large\textbf{\textcolor{clColontitulText}{
+        \productname        
+    }}\par}
+             
+\end{flushleft}
+     
+\vspace*{\fill}
+\begin{flushright}
+    %{\Large\textbf{\textcolor[RGB]{0, 65, 153}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}}}\\
+    %{\large\textbf{\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}\par}    
+    %{\large\textbf{\textcolor[RGB]{0, 65, 153}{LapVision}~\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}}  
+    %{\large\textbf{\textcolor[RGB]{0, 65, 153}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}~\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}}  
+    %{\large\textbf{\textcolor{white}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}~\textcolor{white}{\producttrademarktype}}}  
+    \producttrademarknametitul
+\end{flushright}
+\vspace*{\fill}
+
+
+
+
+%\phantomsection 
+%\addcontentsline{toc}{section}{Комплект поставки}
+%\markboth{Комплект поставки}{Комплект поставки}
+%\section*{Комплект поставки}    %так было, комплектация не была разделом, была не пронумерованным включением в содержание
+
+

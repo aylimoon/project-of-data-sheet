@@ -1,0 +1,86 @@
+
+% Загрузка файлов с переменными для автоматизированной генерации документации
+% Для отладки определенного сима , загружать файл с переменными после \else 
+
+
+\ifdefined\simulatorflag
+    
+    %Флаг определен Flag defined qqq
+    %Флаг равен \simulatorflag
+    %Флаг второй равен \brandf
+    %\newcommand{\branding}[1]{\input{../../branding1}}
+
+
+    \ifcase \simulatorflag
+        %0        
+        \input{\pathvariables/lpr_var} % ЛПР лапаро
+    \or
+        %1        
+        \input{\pathvariables/end_var} % ВЭД.БГК бронхо гастро колоно
+    \or
+        %2
+        \input{\pathvariables/brs_var} % ВЭД.Б бронхо
+    \or
+        %3
+        \input{\pathvariables/ps_p_var} % РП.П Робот-пациент подросток
+    \or
+        %4
+        \input{\pathvariables/ps_a_var} % РП.В Симулятор взрослого пациента 
+    \or
+        %5
+        \input{\pathvariables/ps_aus_var} % РП.АУС Тренажер аускультации взрослого пациента
+    \or
+        %6
+        \input{\pathvariables/ps_aus_p_var} % РП.АУС.П Тренажер педиатрической аускультации
+    \or
+        %7
+        \input{\pathvariables/evs_var} % ЭВС Ангио
+    \or
+        %8
+        \input{\pathvariables/hys_tur_var} % ГС.ТУР Виртуальный симулятор гистероскопических и трансуретральных вмешательств
+    \or
+        %9
+        \input{\pathvariables/ps_psy_var} % РП.ФОК Тренажер физикального обследования кардиологического пациента
+    \or 
+        %10
+        \input{\pathvariables/ps_n_var}  % РП.Н Симулятор пациента новорожденного
+    \or 
+        %11
+        \input{\pathvariables/hys_var}  % ГС Виртуальный симулятор гистероскопических вмешательств
+    \or 
+        %12
+        \input{\pathvariables/ps_vi_var}  % РП.ВП Виртуальный пациент
+    \or 
+        %13
+        \input{\pathvariables/usd_var}  % Б.УЗИ Виртуальный симулятор ультразвуковой диагностики
+      \else
+        %Значение другое
+    \fi
+    
+    \input{\pathvariables/manufacturer_var}
+
+\else     % для отладки в VCS определенного сима, файл с переменныими загружать тут
+    Флаг не определен Flag is not defined d\\
+    \pathvariables
+    %\input{\pathtemplate/passport_transportation}
+    %\input{\pathvariables/var_default}
+
+    %\input{\pathvariables/lpr_var} % ЛПР Лапаро
+    %\input{\pathvariables/end_var} % ВЭД.БГК Бронхо гастро колоно
+    %\input{\pathvariables/brs_var} % ВЭД.Б Бронхо
+    %\input{\pathvariables/ps_p_var}  % РП.П Робот-пациент подросток
+    %\input{\pathvariables/ps_a_var} % РП.В Симулятор взрослого пациента 
+    %\input{\pathvariables/ps_aus_var} % РП.АУС Тренажер аускультации взрослого пациента
+    %\input{\pathvariables/ps_aus_p_var} % РП.АУС Тренажер педиатрической аускультации
+    %\input{\pathvariables/evs_var} % ЭВС Ангио
+    %\input{\pathvariables/hys_tur_var} % ГС.ТУР Виртуальный симулятор гистероскопических и трансуретральных вмешательств
+    %\input{\pathvariables/ps_psy_var} % РП.ФОК Тренажер физикального обследования кардиологического пациента
+    %\input{\pathvariables/ps_n_var}  % РП.Н Симулятор пациента новорожденного
+    %\input{\pathvariables/hys_var}  % ГС Виртуальный симулятор гистероскопических вмешательств
+    %\input{\pathvariables/ps_vi_var}  % РП.ВП Виртуальный пациент
+    \input{\pathvariables/usd_var}  % Б.УЗИ Виртуальный симулятор ультразвуковой диагностики
+    \input{\pathvariables/manufacturer_var} 
+    images/\imagelogo
+    %\newcommand{\branding}[1]{\input{../../branding2}}
+    %\input{\lng/passport_contact} 
+\fi

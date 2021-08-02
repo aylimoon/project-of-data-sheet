@@ -1,0 +1,29 @@
+del *.aux > nul
+del *.log > nul
+
+del russian\*.aux > nul
+del russian\*.log > nul
+
+del core\*.aux > nul
+del core\*.log > nul
+
+del russian\soft\*.aux > nul
+del russian\soft\*.log > nul
+
+del russian\ex\*.aux > nul
+del russian\ex\*.log > nul
+
+del russian\inst\*.aux > nul
+del russian\inst\*.log > nul
+
+del english\*.aux > nul
+del english\*.log > nul
+
+del english\soft\*.aux > nul
+del english\soft\*.log > nul
+
+del english\inst\*.aux > nul
+del english\inst\*.log > nul
+
+del english\ex\*.aux > nul
+del english\ex\*.log > nul

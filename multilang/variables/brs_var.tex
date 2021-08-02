@@ -1,0 +1,294 @@
+% ВЭД.Б BRS	Виртуальный симулятор бронхоскопии
+%---Используемые переменные (справочный раздел)--- % Коммент этого сектора должен быть всегда, этот сектор для справки
+% используются в операторах case
+%\newcommand{\typesimulator}{0}   %тип симулятора (используется в операторе кейс) значения (0,1,2)=(Б,С,Г)
+%\newcommand{\typemanufacturer}{0} % выбор компании
+
+%обычные переменные
+%\newcommand{\producttype}{Б.ЛПР} %тип продукта    
+%\newcommand{\productname}{Виртуальный симулятор лапароскопии}
+%\newcommand{\productmainview}{lapvision-standart} % внешний вид продукта    
+%\newcommand{\productsertificate}{ce_sertificate_em} % сертификат продукта    
+%\newcommand{\producttrademark}{LapVision} % торговое наименование симулятора
+%\newcommand{\producttrademarktype}{Standart} % торговое наименование типа симулятора
+
+%\newcommand{\productserialnumber}{/\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_/}
+%\newcommand{\productiondate}{2019}  %дата производства
+
+%\newcommand{\productmadein}{Сделано в} % страна производства   
+%\newcommand{\manufacturername}{ООО~«Эйдос-Медицина»} %название компании
+%\newcommand{\address}{420107,  Россия, г.~Казань, ул.~Петербургская, д.50}
+%\newcommand{\phone}{+7 (843) 227-40-63} 
+%\newcommand{\email}{mail@oooeidos.ru}
+
+%\newcommand{\producttechchar} % Технические характеристики симулятора
+    %\newcommand{\producttechchardimension} % Габаритные размеры симулятора
+    %\newcommand{\producttechcharweighs} % Вес симулятора 
+%\newcommand{\productequip} % Комплектация симулятора
+%---Используемые переменные (справочный раздел)---
+
+
+\ifdefined \typesimulator
+\else
+%{
+%---Определение типа симулятора---  что-то одно всегда должно быть включено
+%\newcommand{\typesimulator}{0}   % Отсутствует
+\newcommand{\typesimulator}{1}   % Стандартная модификация
+%\newcommand{\typesimulator}{2}   % Отсутствует
+%\newcommand{\typesimulator}{3}     % Ручная модификация, если комплектацию и тип симулятора нужно вбить в ручную 
+                                    %(редактировать ниже в операторе ifcase \typesimulator    на 3 позиции)
+%---Определение типа симулятора---
+%}
+\fi
+
+%\IsLngRusfalse % Можно использовать при отладке, но не забыть закомментировать перед компиляцией bat файлом
+
+% Определение общих переменных (рус и англ)
+
+\newcommand{\producttrademark}{BronchoVision}
+\newcommand{\producttrademarknameone}{Broncho}
+\newcommand{\producttrademarknametwo}{Vision}
+\newcommand{\producttrademarknametitul}
+{
+\large\textbf{\textcolor{TradeMarkNameOneColor}{\producttrademarknameone}\textcolor{TradeMarkNameTwoColor}{\producttrademarknametwo}~\textcolor{TradeMarkNameOneColor}{\producttrademarktype}}
+}
+\newcommand{\producttechcharvoltage}{110 - 220} % Напряжение питания
+
+\ifcase \typesimulator   % кейс для всех языков
+%{Базовая модификация}  % Отсутствует
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{SMART}
+\newcommand{\producttechchardimension}{550x650x650} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{30} % Вес симулятора
+\newcommand{\producttechcharpower}{500} % Потребляемая мощность
+
+\or
+%{Стандартная модификация}
+\newcommand{\productmainview}{bronho-3}
+\newcommand{\producttrademarktype}{STANDARD}
+\ifIsLngRus\newcommand{\producttechchardimension}{1000x500x1800}\else\newcommand{\producttechchardimension}{1,000x500x1,800}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{100} % Вес симулятора
+\ifIsLngRus\newcommand{\producttechcharpower}{1000}\else\newcommand{\producttechcharpower}{1,000}\fi % Потребляемая мощность
+
+\or
+%{Гибридная модификация} % Отсутствует
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{HYBRID}
+\newcommand{\producttechchardimension}{3000x2800x1800} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{170} % Вес симулятора
+\newcommand{\producttechcharpower}{2000} % Потребляемая мощность
+
+\else
+% Ручная модификация
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{NoName}
+\newcommand{\producttechchardimension}{XXXхXXхXXXXX} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{XXX} % Вес симулятора
+\newcommand{\producttechcharpower}{XXX} % Потребляемая мощность
+
+\fi
+
+%\IsLngRusfalse % Можно использовать при отладке, но не забыть закомментировать перед компиляцией bat файлом
+\ifIsLngRus % определение переменных на русском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Виртуальный симулятор бронхоскопии}    
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    %{Базовая модификация}  % Отсутствует
+
+    \newcommand{\producttype}{Б.ВЭД.Б}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline       
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+
+    \or
+
+    %{Стандартная модификация} 
+    \newcommand{\producttype}{C.ВЭД.Б}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Корпус симулятора & \\ \hline
+        Педаль двухклавишная & \\ \hline
+        Имитатор бронхоскопа & \\ \hline
+        Имитатор биопсийных щипцов & \\ \hline
+        Имитатор шприца & \\ \hline
+        
+        Системный блок, встроенный в корпус симулятора & \\ \hline
+        Сенсорный монитор & \\ \hline
+        ЖК-монитор & \\ \hline
+        Сетевой фильтр & \\ \hline
+        
+        Руководство по эксплуатации & \\ \hline
+        Технический паспорт изделия & \\ \hline
+        Руководство администратора & \\ \hline
+
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline    
+    }
+    \or
+
+    %{Гибридная модификация}  % Отсутствует
+    \newcommand{\producttype}{Г.ВЭД.Б}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }
+    \fi
+    %---Определение переменных зависящих от типа симулятора---
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\else % определение переменных на английском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Virtual Simulator for Practical Skills in Bronchoscopy}
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    %{Базовая модификация} 
+
+    \newcommand{\producttype}{B.BRS}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline       
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+
+    \or
+
+    %{Стандартная модификация}
+    \newcommand{\producttype}{S.BRS}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Simulator mainframe & \\ \hline
+        Two-key pedal & \\ \hline
+        Bronchoscope imitator & \\ \hline
+        Biopsy forceps imitator & \\ \hline
+        Syringe imitator & \\ \hline        
+        
+        Built-in system unit & \\ \hline
+        Touchscreen monitor & \\ \hline
+        LCD monitor & \\ \hline
+        Power strip & \\ \hline
+        
+        User Manual & \\ \hline
+        Product Data Sheet & \\ \hline
+        Administrator Manual & \\ \hline
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline    
+    }
+    \or
+
+    %{Гибридная модификация} 
+    \newcommand{\producttype}{H.BRS}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }  
+    \fi
+    %---Определение переменных зависящих от типа симулятора--- 
+
+\fi
+
+
+
+
+
+
+
+
+
+
+

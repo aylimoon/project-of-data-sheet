@@ -1,0 +1,664 @@
+%---Используемые переменные (справочный раздел)--- % Коммент этого сектора должен быть всегда, этот сектор для справки
+% используются в операторах case
+%\newcommand{\typesimulator}{0}   %тип симулятора (используется в операторе кейс) значения (0,1,2)=(Б,С,Г)
+%\newcommand{\typemanufacturer}{0} % выбор компании
+
+%обычные переменные
+%\newcommand{\producttype}{Б.ЛПР} %тип продукта    
+%\newcommand{\productname}{Виртуальный симулятор лапароскопии}
+%\newcommand{\productmainview}{lapvision-standart} % внешний вид продукта    
+%\newcommand{\productsertificate}{ce_sertificate_em} % сертификат продукта    
+%\newcommand{\producttrademark}{LapVision} % торговое наименование симулятора
+%\newcommand{\producttrademarktype}{Standart} % торговое наименование типа симулятора
+
+%\newcommand{\productserialnumber}{/\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_/}
+%\newcommand{\productiondate}{2019}  %дата производства
+
+%\newcommand{\productmadein}{Сделано в} % страна производства   
+%\newcommand{\manufacturername}{ООО~«Эйдос-Медицина»} %название компании
+%\newcommand{\address}{420107,  Россия, г.~Казань, ул.~Петербургская, д.50}
+%\newcommand{\phone}{+7 (843) 227-40-63} 
+%\newcommand{\email}{mail@oooeidos.ru}
+
+%\newcommand{\producttechchar} % Технические характеристики симулятора
+    %\newcommand{\producttechchardimension} % Габаритные размеры симулятора
+    %\newcommand{\producttechcharweighs} % Вес симулятора 
+%\newcommand{\productequip} % Комплектация симулятора
+%---Используемые переменные (справочный раздел)---
+
+
+\ifdefined \typesimulator
+\else
+%{
+%---Определение типа симулятора---  что-то одно всегда должно быть включено
+\newcommand{\typesimulator}{0}   % Базовая модификация
+%\newcommand{\typesimulator}{1}   % Стандартная модификация
+%\newcommand{\typesimulator}{2}   % Гибридная модификация
+%\newcommand{\typesimulator}{3}     % Б.ЛПР Демонстрационное оборудование для Вьетнам 08.11.2019
+%\newcommand{\typesimulator}{4}     % Ручная модификация, если комплектацию и тип симулятора нужно вбить в ручную 
+                                    %(редактировать ниже в операторе ifcase \typesimulator    на 3 позиции)
+%---Определение типа симулятора---
+%}
+\fi
+
+
+% Определение общих переменных (рус и англ)
+
+\newcommand{\producttrademark}{LapVision}
+\newcommand{\producttrademarknameone}{Lap}
+\newcommand{\producttrademarknametwo}{Vision}
+\newcommand{\producttrademarknametitul}
+{
+\large\textbf{\textcolor{TradeMarkNameOneColor}{\producttrademarknameone}\textcolor{TradeMarkNameTwoColor}{\producttrademarknametwo}~\textcolor{TradeMarkNameOneColor}{\producttrademarktype}}
+}
+\newcommand{\producttechcharvoltage}{110 - 220} % Напряжение питания
+
+\ifcase \typesimulator   % кейс для всех языков
+%{Базовая модификация} 
+\newcommand{\productmainview}{lapvision-smart}
+\newcommand{\producttrademarktype}{SMART}
+\newcommand{\producttechchardimension}{550x650x650} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{30} % Вес симулятора
+\newcommand{\producttechcharpower}{500} % Потребляемая мощность
+
+\or
+%{Стандартная модификация}
+\newcommand{\productmainview}{lapvision-standart}
+\newcommand{\producttrademarktype}{STANDARD}
+\ifIsLngRus\newcommand{\producttechchardimension}{550x1000x1800}\else\newcommand{\producttechchardimension}{550x1,000x1,800}\fi % Габаритные размеры симулятора
+%\newcommand{\producttechchardimension}{550x1000x1800} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{90} % Вес симулятора
+\ifIsLngRus\newcommand{\producttechcharpower}{1000}\else\newcommand{\producttechcharpower}{1,000}\fi % Потребляемая мощность
+
+\or
+%{Гибридная модификация} 
+\newcommand{\productmainview}{lapvision-hybrid-2}
+\newcommand{\producttrademarktype}{HYBRID}
+\ifIsLngRus\newcommand{\producttechchardimension}{3000x2800x1800}\else\newcommand{\producttechchardimension}{3,000x2,800x1,800}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{170} % Вес симулятора
+\ifIsLngRus\newcommand{\producttechcharpower}{2000}\else\newcommand{\producttechcharpower}{2,000}\fi % Потребляемая мощность
+
+\or
+%{Базовая модификация}  Демонстрационное оборудование
+\newcommand{\productmainview}{lapvision-smart}
+\newcommand{\producttrademarktype}{SMART}
+\newcommand{\producttechchardimension}{550x650x650} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{30} % Вес симулятора
+\newcommand{\producttechcharpower}{500} % Потребляемая мощность
+
+\else
+% Ручная модификация
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{NoName}
+\newcommand{\producttechchardimension}{XXXхXXхXXXXX} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{XXX} % Вес симулятора
+\newcommand{\producttechcharpower}{XXX} % Потребляемая мощность
+
+\fi
+
+%\IsLngRusfalse % Можно использовать при отладке, но не забыть закомментировать перед компиляцией bat файлом
+\ifIsLngRus % определение переменных на русском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Виртуальный симулятор лапароскопии}
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    %{Базовая модификация} 
+
+    \newcommand{\producttype}{Б.ЛПР}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Блок сопряжения & \\ \hline
+        Порт эндовидеокамеры & \\ \hline        
+        Порт инструмента (левый) & \\ \hline        
+        Порт инструмента (правый) & \\ \hline        
+        Имитатор лапароскопического инструмента & \\ \hline        
+        Имитатор эндовидеокамеры & \\ \hline        
+        Педаль двухклавишная & \\ \hline        
+        Системный блок & \\ \hline        
+        Сенсорный монитор & \\ \hline        
+        ЖК-монитор & \\ \hline        
+        USB-ключ & \\ \hline        
+        Кабель для зарядки инструмента & \\ \hline        
+        Кабель USB A-B & \\ \hline        
+        Cетевой шнур питания & \\ \hline        
+        Сетевой фильтр & \\ \hline        
+        Кейс & \\ \hline        
+        Технический паспорт изделия & \\ \hline        
+        Руководство по эксплуатации & \\ \hline        
+        Руководство администратора & \\ \hline
+      
+  
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline 
+    }
+
+    \or
+
+    %{Стандартная модификация}
+    \newcommand{\producttype}{C.ЛПР}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Корпус симулятора & \\ \hline
+        Имитатор лапароскопического инструмента & \\ \hline        
+        Имитатор эндовидеокамеры & \\ \hline        
+        Педаль двухклавишная & \\ \hline        
+        Системный блок, встроенный в корпус симулятора & \\ \hline        
+        Сенсорный монитор & \\ \hline        
+        ЖК-монитор & \\ \hline        
+        USB-ключ & \\ \hline        
+        Сетевой фильтр & \\ \hline        
+        Технический паспорт изделия & \\ \hline        
+        Руководство по эксплуатации & \\ \hline        
+        Руководство администратора & \\ \hline  
+    
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline    
+    }
+    \or
+
+    %{Гибридная модификация} 
+    \newcommand{\producttype}{Г.ЛПР}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        
+        Имитатор лапароскопической стойки & \\ \hline
+
+        Блок сопряжения & \\ \hline
+        
+        Имитатор блока коагулятора & \\ \hline
+        
+        Имитатор блока аспиратора-ирригатора & \\ \hline
+        
+        Имитатор блока эндовидеокамеры & \\ \hline
+        
+        Имитатор блока инсуффлятора & \\ \hline
+        
+        Имитатор блока осветителя & \\ \hline
+
+        Порт эндовидеокамеры & \\ \hline
+        
+        Порт инструмента (левый) & \\ \hline
+        
+        Порт инструмента (правый) & \\ \hline
+        
+        Имитатор лапароскопического инструмента & \\ \hline
+        
+        Имитатор эндовидеокамеры & \\ \hline
+        
+        Педаль двухклавишная & \\ \hline
+        
+        Стойка для монитора & \\ \hline
+        
+        Имитатор операционного стола & \\ \hline
+        
+        Симулятор пациента & \\ \hline
+        
+        Зарядное устройство симулятора пациента & \\ \hline
+        
+        Адаптер & \\ \hline
+        
+        Зарядное устройство Адаптера & \\ \hline
+        
+        Кабель Адаптера на 4 электрода & \\ \hline
+        
+        Кабель-переходник Адаптер - канал ЭКГ & \\ \hline
+        
+        Кабель-переходник Адаптер - канал ЭКС & \\ \hline
+        
+        Кабель переходник Адаптер - канал SpO2 & \\ \hline
+        
+        Накладки дефибриллятора & \\ \hline
+        
+        Смартскоп & \\ \hline
+        
+        Зарядное устройство Смартскопа & \\ \hline
+        
+        Тонометр с фонендоскопом & \\ \hline
+        
+        Пульсоксиметр & \\ \hline
+        
+        Папка с метками лекарственных препаратов и шприцами различного объема & \\ \hline
+        
+        Сменный кадык малый & \\ \hline
+        
+        Накладка "Травма руки" & \\ \hline
+        
+        Накладка "Травма ноги" & \\ \hline
+        
+        Бутыль заправочная (кровь) & \\ \hline
+        
+        Бутыль заправочная (вода) & \\ \hline
+        
+        Бутыль для стравливания воздуха & \\ \hline
+        
+        Лубрикант (флакон-распылитель со смазкой) & \\ \hline
+        
+        Порт внутривенного вливания & \\ \hline
+        
+        Расходные материалы для внутрикостного вливания & \\ \hline
+        
+        Расходные материалы для коникотомии & \\ \hline
+        
+        Расходные материалы ЭКГ & \\ \hline
+        
+        Подставка для заправочных емкостей & \\ \hline
+        
+        Заглушка на порт мочеиспускания & \\ \hline
+        
+        Ключ для замены полового органа & \\ \hline
+        
+        Ключ модуля внутрикостного вливания & \\ \hline
+        
+        Шарф силиконовый (для конечностей) & \\ \hline
+        
+        Шарф силиконовый (на шею) & \\ \hline
+        
+        Одежда: шорты & \\ \hline
+        
+        Системный блок & \\ \hline
+        
+        Ноутбук & \\ \hline
+        
+        Моноблок & \\ \hline
+        
+        Сенсорный монитор & \\ \hline
+        
+        ЖК-монитор & \\ \hline
+        
+        Wi-Fi роутер & \\ \hline
+        
+        Web-камера & \\ \hline
+        
+        Наушники с микрофоном & \\ \hline
+        
+        Сетевой фильтр & \\ \hline
+        
+        Технический паспорт изделия & \\ \hline
+        
+        Руководство по эксплуатации & \\ \hline
+
+
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+    \or 
+
+    % Б.ЛПР Демонстрационное оборудование для Вьетнам 08.11.2019
+    \newcommand{\producttype}{Б.ЛПР}
+
+    \newcommand{\productequip}
+    {
+        Блок сопряжения &  \\ \hline
+        Порт эндовидеокамеры &  \\ \hline
+        Порт инструмента (левый) &  \\ \hline
+        Порт инструмента (правый) &  \\ \hline
+        Имитатор лапароскопического инструмента &  \\ \hline
+        Имитатор эндовидеокамеры &  \\ \hline
+        Педаль двухклавишная &  \\ \hline
+        Системный блок &  \\ \hline
+        Сенсорный монитор &  \\ \hline
+        ЖК-монитор &  \\ \hline
+        \hline
+        \rowcolor{clColontitulLine}\multicolumn{2}{|c|}{\textbf{\textcolor[rgb]{1,1,1}{Демонстрационное оборудование}}} \\ \hline
+        USB-ключ &  \\ \hline
+        Кабель CC-USB-AMP35-6 &  \\ \hline
+        Кабель USB A-B &  \\ \hline
+        Cетевой шнур питания &  \\ \hline
+        Сетевой фильтр &  \\ \hline
+        Кейс &  \\ \hline
+        Технический паспорт изделия &  \\ \hline
+        Руководство по эксплуатации &  \\ \hline
+        Руководство администратора &  \\ \hline
+  
+        %&\\ \hline 
+    }    
+
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }
+    \fi
+    %---Определение переменных зависящих от типа симулятора---
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\else % определение переменных на английском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Virtual Simulator for Practical Skills in Laparoscopy}
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    %{Базовая модификация} 
+
+    \newcommand{\producttype}{B.LPR}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+
+        Interface unit & \\ \hline
+
+        Endovideocamera port & \\ \hline
+        
+        Instrument port (left) & \\ \hline
+        
+        Instrument port (right) & \\ \hline
+        
+        Laparoscopic instrument imitator & \\ \hline
+        
+        Endovideocamera imitator & \\ \hline
+        
+        Two-key pedal & \\ \hline
+        
+        System unit & \\ \hline
+        
+        Touchscreen monitor & \\ \hline
+        
+        LCD monitor & \\ \hline
+        
+        USB key & \\ \hline
+        
+        Instrument charging cable & \\ \hline
+        
+        A-B USB cable & \\ \hline
+        
+        Power cord & \\ \hline
+        
+        Power strip & \\ \hline
+        
+        Transportation case & \\ \hline
+        
+        Product Data Sheet & \\ \hline
+        
+        User Manual & \\ \hline
+        
+        Administrator Manual & \\ \hline       
+      
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline
+        %&\\ \hline
+        %&\\ \hline 
+    }
+
+    \or
+
+    %{Стандартная модификация}
+    \newcommand{\producttype}{S.LPR}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+
+        Simulator mainframe & \\ \hline 
+
+        Laparoscopic instrument imitator & \\ \hline 
+        
+        Endovideocamera imitator & \\ \hline 
+        
+        Two-key pedal & \\ \hline 
+        
+        Built-in system unit & \\ \hline 
+        
+        Touchscreen monitor & \\ \hline 
+        
+        LCD monitor & \\ \hline 
+        
+        USB key & \\ \hline 
+        
+        Power strip & \\ \hline 
+        
+        Product Data Sheet & \\ \hline 
+        
+        User Manual & \\ \hline 
+        
+        Administrator Manual & \\ \hline 
+
+          
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline    
+    }
+    \or
+
+    %{Гибридная модификация} 
+    \newcommand{\producttype}{H.LPR}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        
+        Laparoscopic tower & \\ \hline
+
+        Interface unit & \\ \hline
+        
+        Coagulator unit imitator & \\ \hline
+        
+        Aspirator-irrigator unit imitator & \\ \hline
+        
+        Endovideocamera unit imitator & \\ \hline
+        
+        Insufflator unit imitator & \\ \hline
+        
+        Light source unit imitator & \\ \hline
+        
+        Endovideocamera port & \\ \hline
+        
+        Instrument port (left) & \\ \hline
+        
+        Instrument port (right) & \\ \hline
+        
+        Laparoscopic instrument imitator & \\ \hline
+        
+        Endovideocamera imitator & \\ \hline
+        
+        Two-key pedal & \\ \hline
+        
+        Monitor bracket & \\ \hline
+        
+        Operating table imitation & \\ \hline
+        
+        Patient simulator & \\ \hline
+        
+        Simulator battery charger & \\ \hline
+        
+        Adapter & \\ \hline
+        
+        Adapter charger & \\ \hline
+        
+        4-electrode adapter cable & \\ \hline
+        
+        Adapter - ECG channel conversion cable & \\ \hline
+        
+        Adapter - Pacing channel conversion cable & \\ \hline
+        
+        Adapter - SpO2 channel conversion cable & \\ \hline
+        
+        Defibrillator pads & \\ \hline
+        
+        Smartscope & \\ \hline
+        
+        Smartscope charger & \\ \hline
+        
+        Blood pressure monitor with phonendoscope  & \\ \hline
+        
+        Pulse oximeter & \\ \hline
+        
+        Folder with tags for drugs and syringes of a different volume  & \\ \hline
+        
+        Indistinct Adam’s apple & \\ \hline
+        
+        Arm injury pad & \\ \hline
+        
+        Leg injury pad & \\ \hline
+        
+        Refill bottle (blood) & \\ \hline
+        
+        Refill bottle (water) & \\ \hline
+        
+        Air drain tank & \\ \hline
+        
+        Lubricant (spray) & \\ \hline
+        
+        IV port & \\ \hline
+        
+        Intraosseous infusion consumables & \\ \hline
+        
+        Cricothyrotomy performance consumables & \\ \hline
+        
+        ECG consumables & \\ \hline        
+        
+        Refill bottles holder & \\ \hline
+        
+        Urination port protective cap & \\ \hline
+        
+        Genitals replacement key & \\ \hline
+        
+        Intraosseous infusion unit key  & \\ \hline
+        
+        Silicone pad (for limbs) & \\ \hline
+        
+        Silicone pad (for neck) & \\ \hline
+        
+        Clothing (shorts) & \\ \hline
+        
+        System unit & \\ \hline
+        
+        Laptop & \\ \hline
+        
+        All-in-one PC & \\ \hline
+        
+        Touchscreen monitor & \\ \hline
+        
+        LCD monitor & \\ \hline
+        
+        Wi-Fi router & \\ \hline
+        
+        Webcam & \\ \hline
+        
+        Headset & \\ \hline
+        
+        Power strip & \\ \hline
+        
+        Product Data Sheet & \\ \hline
+        
+        User Manual & \\ \hline
+
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }    
+    \or 
+    
+    %{Базовая модификация} 
+
+    \newcommand{\producttype}{B.LPR}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Interface box &  \\ \hline
+        Endocamera port &  \\ \hline        
+        Instrument port (left) &  \\ \hline        
+        Instrument port (right) &  \\ \hline        
+        Laparoscopic instrument imitator &  \\ \hline        
+        Endocamera imitator &  \\ \hline        
+        Two-key pedal &  \\ \hline        
+        System unit &  \\ \hline        
+        Touchscreen monitor &  \\ \hline        
+        LCD &  \\ \hline        
+        \hline
+        \rowcolor{clColontitulLine}\multicolumn{2}{|c|}{\textbf{\textcolor[rgb]{1,1,1}{Demo unit}}} \\ \hline
+        USB-key &  \\ \hline        
+        Cable CC-USB-AMP35-6 &  \\ \hline        
+        USB cable A-B &  \\ \hline        
+        Power cord &  \\ \hline        
+        Power strip &  \\ \hline        
+        Case &  \\ \hline        
+        Product Data Sheet &  \\ \hline        
+        User Manual &  \\ \hline        
+        Administrator Manual &  \\ \hline
+      
+        %&\\ \hline
+        %&\\ \hline
+        %&\\ \hline
+        %&\\ \hline
+        %&\\ \hline 
+    }
+
+    
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }  
+    \fi
+    %---Определение переменных зависящих от типа симулятора--- 
+
+\fi
+
+
+
+
+
+
+
+
+
+
+

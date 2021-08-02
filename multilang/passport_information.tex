@@ -1,0 +1,70 @@
+
+%\IsLngRusfalse
+\ifIsLngRus  % русский язык
+{
+    \section{Основные сведения об изделии}
+
+    \vspace{5mm}
+    \begin{longtable}{p{4,5cm} p{5cm}}
+        \textbf{Наименование симулятора:} & \productname\\
+        \textbf{Тип симулятора:} & \producttype \\
+        \ifdefined \producttrademark \textbf{Торговое наименование:} & \producttrademark~\producttrademarktype \\ \fi
+        \\
+        \textbf{Серийный номер:} & \productserialnumber\\ 
+        \textbf{Произведено:} & \productiondate\\
+        \\
+        \textbf{Страна производства:} & \productmadein\\
+        \textbf{Производитель:} & \manufacturername\\
+        \textbf{Адрес:} & \address\\
+        \textbf{Телефон:} & \phone\\
+        \textbf{E-mail:} & \email\\  
+    \end{longtable}    
+
+    \newpage
+    \vspace*{\fill}
+    \figBBnoCap{\productmainview}{Внешний вид симулятора}
+    \vspace*{\fill}
+
+    \newpage
+    \figBBnoCap[0.95]{\productsertificate}{Cертификат}
+
+    \pagebreak
+}
+\fi
+
+%\IsLngEngfalse
+\ifIsLngEng  % английский язык
+{
+    \section{General information}
+
+    \vspace{5mm}
+    \begin{longtable}{p{4,5cm} p{5cm}}
+        \textbf{Name:} & \productname\\
+        \textbf{Type:} & \producttype \\
+        \ifdefined \producttrademark \textbf{Trade name:} & \producttrademark~\producttrademarktype \\ \fi
+        \\
+        \textbf{Serial number:} & \productserialnumber\\ 
+        \textbf{Production date:} & \productiondate\\
+        \\
+        \textbf{Country of origin:} & \productmadein\\
+        \textbf{Manufacturer:} & \manufacturername\\
+        \textbf{Address:} & \address\\
+        \textbf{Telephone number:} & \phone\\
+        \textbf{E-mail:} & \email\\  
+    \end{longtable}   
+    
+    \newpage
+    \vspace*{\fill}
+    \figBBnoCap{\productmainview}{Simulator}
+    \vspace*{\fill}
+
+    \newpage
+    \figBBnoCap[0.95]{\productsertificate}{Certificate}  
+
+    \pagebreak
+}
+\fi
+
+
+
+

@@ -1,0 +1,103 @@
+
+%\IsLngRusfalse
+\ifIsLngRus % русский язык
+{
+    \section{Технические характеристики}
+
+    {
+    \setlength{\extrarowheight}{2pt}
+    \begin{flushleft}
+    \begin{spacing}{0.9}
+    \begin{longtable}{|p{4cm}|p{5.5cm}|}\hline 
+        \rowcolor{clColontitulLine}\textbf{\textcolor[rgb]{1,1,1}{Наименование}} & \textbf{\textcolor[rgb]{1,1,1}{Значение}}\\ \hline
+        %{\bf Наименование} & {\bf Значение}  \\\hline 
+        
+        \ifdefined\producttechchar
+            \producttechchar
+        \else
+            Габаритные размеры (длина х ширина х высота) & \producttechchardimension ~мм \\\hline  
+            Вес & \producttechcharweighs ~кг\\\hline
+            Напряжение источника питания & \producttechcharvoltage ~(\textpm 10 \%) В\\\hline
+            Частота однофазной сети & 50/60 Гц\\\hline
+            %Количество розеток для подключения симулятора & 3 шт\\\hline
+            Максимальная потребляемая мощность & \producttechcharpower ~Вт\\\hline
+            Площадь размещения & 4 м$^2$	\\\hline
+            Рекомендуемый размер помещения & 3x3 м или больше\\\hline
+            Условия эксплуатации & {\bf При использовании:} \newline\newline
+            Температура воздуха в помещении: 10 – 25 \textdegree{}С; \newline\newline
+            Относительная влажность воздуха: 30 – 75 \% \newline(без образования конденсата);\newline\newline
+            Концентрация пыли в воздухе: \newline
+            Максимальная разовая – 0,5 мг/м$^3$;\newline
+            Среднесуточная – 0,15 мг/м$^3$;\newline
+            \newline
+            {\bf При хранении:}\newline\newline
+            Температура воздуха в помещении: 10 - 40 \textdegree{}С; \newline\newline
+            Относительная влажность воздуха 30 - 75\% \newline(без образования конденсата);\newline\newline
+            Концентрация пыли в воздухе: \newline
+            Максимальная разовая – 0,5 мг/м$^3$;\newline
+            Среднесуточная – 0,15 мг/м$^3$.\\\hline
+            Время непрерывной работы симулятора & 4 часа\\\hline
+            Перерыв в работе симулятора не менее & 30 минут\\\hline 
+        \fi
+    
+    \end{longtable}
+    \end{spacing}  
+    \end{flushleft}
+    }
+    \pagebreak
+}
+\fi
+
+%\IsLngEngfalse
+\ifIsLngEng % английский язык
+{
+    \section{Technical specifications}
+
+    {
+    \setlength{\extrarowheight}{2pt}
+    \begin{flushleft}
+    \begin{spacing}{0.9}
+    \begin{longtable}{|p{4cm}|p{5.5cm}|}\hline 
+        \rowcolor{clColontitulLine}\textbf{\textcolor[rgb]{1,1,1}{Name}} & \textbf{\textcolor[rgb]{1,1,1}{Value}}\\ \hline
+        %{\bf Наименование} & {\bf Значение}  \\\hline 
+        
+        \ifdefined\producttechchar
+            \producttechchar
+        \else                    
+            Size (length x width x height) & \producttechchardimension ~mm \\\hline  
+            Weight & \producttechcharweighs ~kg\\\hline
+            Voltage & \producttechcharvoltage ~(\textpm 10 \%) V\\\hline
+            Single-phase frequency & 50/60 Hz\\\hline
+            %Number of power outlets  & 3 \\\hline
+            Maximum power consumption  & \producttechcharpower ~W\\\hline
+            Accommodation area & 4 m$^2$	\\\hline
+            Minimum recommended work space size & 3x3 m \\\hline
+            Operating conditions & {\bf Operation:} \newline\newline
+            Range of room temperature: \newline 10 – 25 \textdegree{}C \newline\newline
+            Range of room humidity: \newline 30 – 75 \% (non-condensing)\newline\newline
+            Dust concentration in the air: \newline
+            Maximum single – 0.5 mg/m$^3$\newline
+            Daily average – 0.15 mg/m$^3$\newline
+            \newline
+            {\bf Storage:}\newline\newline
+            Range of room temperature: \newline 10 - 40 \textdegree{}C \newline\newline
+            Range of room humidity: \newline 30 - 75 \% (non-condensing)\newline\newline
+            Dust concentration in the air: \newline
+            Maximum single – 0.5 mg/m$^3$\newline
+            Daily average – 0.15 mg/m$^3$\\\hline
+            Running time & 4 hours\\\hline
+            Break, minimum & 30 min\\\hline 
+        \fi
+    
+    \end{longtable}
+    \end{spacing}  
+    \end{flushleft}
+    }
+    \pagebreak
+
+}
+\fi
+
+
+
+

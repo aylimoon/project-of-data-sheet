@@ -1,0 +1,15 @@
+\selectlanguage *{russian}
+\contentsline {section}{\numberline {1}Основные сведения об изделии}{2}{section.1}%
+\contentsline {section}{\numberline {2}General information}{5}{section.2}%
+\contentsline {section}{\numberline {3}Технические характеристики}{8}{section.3}%
+\contentsline {section}{\numberline {4}Technical specifications}{10}{section.4}%
+\contentsline {section}{\numberline {5}Комплектация}{12}{section.5}%
+\contentsline {section}{\numberline {6}List of standard equipment}{13}{section.6}%
+\contentsline {section}{\numberline {7}Транспортировка}{14}{section.7}%
+\contentsline {section}{\numberline {8}Transportation}{15}{section.8}%
+\contentsline {section}{\numberline {9}Утилизация}{16}{section.9}%
+\contentsline {section}{\numberline {10}Disposal \& Recycling}{18}{section.10}%
+\contentsline {section}{\numberline {11}Гарантийные обязательства}{19}{section.11}%
+\contentsline {section}{\numberline {12}Warranty}{23}{section.12}%
+\contentsline {section}{\numberline {13}Контактная информация}{27}{section.13}%
+\contentsline {section}{\numberline {14}Contact Information}{28}{section.14}%

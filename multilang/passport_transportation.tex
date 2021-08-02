@@ -1,0 +1,71 @@
+%\ifIsEnsim
+% \rowcolor{clColontitulText}\textbf{Оборудование} & \textbf{Кол-во, шт.}\\ \hline
+%\else
+%\rowcolor{clColontitulLine}\textbf{\textcolor[rgb]{1,1,1}{Оборудование}} & \textbf{\textcolor[rgb]{1,1,1}{Шт.}}\\ \hline
+%\fi
+%\newif\ifIsLngRus\IsLngRustrue % Флаг использования рускоязычных секций из файлов
+%\newif\ifIsLngEng\IsLngEngtrue % Флаг использования англоязычных секций из файлов
+\ifIsLngRus % русский язык
+{
+
+}
+\fi
+
+\ifIsLngEng % английский язык
+{
+
+
+}
+\fi
+
+
+\ifIsLngRus
+{
+    \section{Транспортировка}
+
+    {\textcolor[rgb]{1,0,0}{\textbf{Внимание!}}} Не допускается подвергать изделие ударным нагрузкам при погрузочно-разгрузочных работах.
+    %\textbf{ВНИМАНИЕ:} Не допускается подвергать изделие ударным нагрузкам при погрузочно-разгрузочных работах.
+    
+    \textbf{Транспортировка наземным транспортом}
+    
+    При транспортировке изделия наземным транспортом используется жёсткая упаковка. 
+    Изделие упаковывается в воздушно-пузырьковую плёнку и стретч-плёнку.
+    Отдельные комплектующие изделия (мониторы, инструменты, мелкие детали) складываются в картонные коробки.
+    Упакованное оборудование устанавливается на палету, вокруг которой собирается деревянный каркас.
+    Такой вид упаковки обеспечивает необходимую безопасность при транспортировке наземным транспортом и позволяет
+    обеспечить сохранность груза.
+    
+    \textbf{Транспортировка воздушным транспортом}
+    
+    При транспортировке воздушным транспортом используется упаковка производителя. 
+    Оборудование упаковывается в воздушно-пузырьковую плёнку и стретч-плёнку. 
+    Упакованное оборудование складывается в специально сконструированные по размеру деревянные ящики и закрывается. 
+    Данный вид упаковки не позволяет оборудованию передвигаться в грузовом отделе самолёта и обеспечивает
+    необходимую безопасность при транспортировке.    
+}
+\fi
+
+\ifIsLngEng
+{
+    \section{Transportation}
+
+    {\textcolor[rgb]{1,0,0}{\textbf{Warning!}}} The simulator must not be subject to shock loads during handling operations.
+    
+    \textbf{Land transportation}
+    
+    For land transportation,  rigid package is used.  
+    The simulator is wrapped with air-bubble film and strectch film.
+    Individual components (monitors, instruments, small parts) are packed in cardboard boxes.
+    The packed equipment is mounted on a pallet with a wooden frame.
+    This type of packaging provides necessary safety during land transportation and ensures cargo safety.
+    
+    \textbf{Air transportation}
+    
+    For air transportation,  original package is used.  
+    The simulator is wrapped with air-bubble film and strectch film. 
+    The wrapped equipment is packed into specially designed wood cases and locked. 
+    This type of packaging does not allow equipment to move in the cargo section of the aircraft and provides the necessary safety during transportation.
+}
+\fi
+
+

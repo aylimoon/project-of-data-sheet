@@ -1,0 +1,305 @@
+% Б.УЗИ B.USD Виртуальный симулятор ультразвуковой диагностики
+
+%---Используемые переменные (справочный раздел)--- % Коммент этого сектора должен быть всегда, этот сектор для справки
+% используются в операторах case
+%\newcommand{\typesimulator}{0}   %тип симулятора (используется в операторе кейс) значения (0,1,2)=(Б,С,Г)
+%\newcommand{\typemanufacturer}{0} % выбор компании
+
+%обычные переменные
+%\newcommand{\producttype}{Б.ЛПР} %тип продукта    
+%\newcommand{\productname}{Виртуальный симулятор лапароскопии}
+%\newcommand{\productmainview}{lapvision-standart} % внешний вид продукта    
+%\newcommand{\productsertificate}{ce_sertificate_em} % сертификат продукта    
+%\newcommand{\producttrademark}{LapVision} % торговое наименование симулятора
+%\newcommand{\producttrademarktype}{Standart} % торговое наименование типа симулятора
+
+%\newcommand{\productserialnumber}{/\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_/}
+%\newcommand{\productiondate}{2019}  %дата производства
+
+%\newcommand{\productmadein}{Сделано в} % страна производства   
+%\newcommand{\manufacturername}{ООО~«Эйдос-Медицина»} %название компании
+%\newcommand{\address}{420107,  Россия, г.~Казань, ул.~Петербургская, д.50}
+%\newcommand{\phone}{+7 (843) 227-40-63} 
+%\newcommand{\email}{mail@oooeidos.ru}
+
+%\newcommand{\producttechchar} % Технические характеристики симулятора
+    %\newcommand{\producttechchardimension} % Габаритные размеры симулятора
+    %\newcommand{\producttechcharweighs} % Вес симулятора 
+%\newcommand{\productequip} % Комплектация симулятора
+%---Используемые переменные (справочный раздел)---
+
+
+\ifdefined \typesimulator
+\else
+%{
+%---Определение типа симулятора---  что-то одно всегда должно быть включено
+\newcommand{\typesimulator}{0}   % Базовая модификация
+%\newcommand{\typesimulator}{1}   % Стандартная модификация
+%\newcommand{\typesimulator}{2}   % Гибридная модификация
+%\newcommand{\typesimulator}{3}     % Ручная модификация, если комплектацию и тип симулятора нужно вбить в ручную 
+                                    %(редактировать ниже в операторе ifcase \typesimulator    на 3 позиции)
+%---Определение типа симулятора---
+%}
+\fi
+
+
+% Определение общих переменных (рус и англ)
+
+\newcommand{\producttrademark}{SonoVision}
+\newcommand{\producttrademarknameone}{Sono}
+\newcommand{\producttrademarknametwo}{Vision}
+\newcommand{\producttrademarknametitul}
+{
+\large\textbf{\textcolor{TradeMarkNameOneColor}{\producttrademarknameone}\textcolor{TradeMarkNameTwoColor}{\producttrademarknametwo}} %~\textcolor{TradeMarkNameOneColor}{\producttrademarktype}}
+}
+\newcommand{\producttechcharvoltage}{110 - 220} % Напряжение питания
+
+\ifcase \typesimulator   % кейс для всех языков
+%{Базовая модификация} 
+\newcommand{\productmainview}{B_USD_2}
+\newcommand{\producttrademarktype}{}
+%\newcommand{\producttechchardimension}{1300x500x400} % Габаритные размеры симулятора
+\ifIsLngRus\newcommand{\producttechchardimension}{1300x500x400}\else\newcommand{\producttechchardimension}{1,300x500x400}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{30} % Вес симулятора
+\newcommand{\producttechcharpower}{500} % Потребляемая мощность
+
+\or
+%{Стандартная модификация}
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{STANDARD}
+\ifIsLngRus\newcommand{\producttechchardimension}{550x1000x1800}\else\newcommand{\producttechchardimension}{550x1,000x1,800}\fi % Габаритные размеры симулятора
+%\newcommand{\producttechchardimension}{550x1000x1800} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{90} % Вес симулятора
+\ifIsLngRus\newcommand{\producttechcharpower}{1000}\else\newcommand{\producttechcharpower}{1,000}\fi % Потребляемая мощность
+
+\or
+%{Гибридная модификация} 
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{HYBRID}
+\ifIsLngRus\newcommand{\producttechchardimension}{3000x2800x1800}\else\newcommand{\producttechchardimension}{3,000x2,800x1,800}\fi % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{170} % Вес симулятора
+\ifIsLngRus\newcommand{\producttechcharpower}{2000}\else\newcommand{\producttechcharpower}{2,000}\fi % Потребляемая мощность
+
+\or
+%{Базовая модификация}  Демонстрационное оборудование
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{SMART}
+\newcommand{\producttechchardimension}{550x650x650} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{30} % Вес симулятора
+\newcommand{\producttechcharpower}{500} % Потребляемая мощность
+
+\else
+% Ручная модификация
+\newcommand{\productmainview}{image-not-found}
+\newcommand{\producttrademarktype}{NoName}
+\newcommand{\producttechchardimension}{XXXхXXхXXXXX} % Габаритные размеры симулятора
+\newcommand{\producttechcharweighs}{XXX} % Вес симулятора
+\newcommand{\producttechcharpower}{XXX} % Потребляемая мощность
+
+\fi
+
+%\IsLngRusfalse % Можно использовать при отладке, но не забыть закомментировать перед компиляцией bat файлом
+\ifIsLngRus % определение переменных на русском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Виртуальный симулятор ультразвуковой диагностики}
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    %{Базовая модификация} 
+
+    \newcommand{\producttype}{Б.УЗИ}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        Полуторсовый манекен & \\ \hline
+        Имитатор трансторакального  датчика УЗИ & \\ \hline
+        Имитатор трансабдоминального датчика УЗИ & \\ \hline
+        Имитатор линейного датчика УЗИ & \\ \hline
+        Имитатор интравагинального датчика УЗИ & \\ \hline
+        Имитатор трансэзофагеального датчика УЗИ & \\ \hline
+        Электромагнитный трекер с сенсорами & \\ \hline
+        Ноутбук & \\ \hline
+        Мышь & \\ \hline
+        USB-ключ & \\ \hline
+        Сетевой фильтр & \\ \hline
+        Кейс & \\ \hline
+        Технический паспорт изделия & \\ \hline
+        Руководство по эксплуатации & \\ \hline    
+              
+          
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline 
+    }
+
+    \or
+
+    %{Стандартная модификация}
+    \newcommand{\producttype}{C.УЗИ}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        
+    
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline    
+    }
+    \or
+
+    %{Гибридная модификация} 
+    \newcommand{\producttype}{Г.УЗИ}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        
+        
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }
+    
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }
+    \fi
+    %---Определение переменных зависящих от типа симулятора---
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\else % определение переменных на английском языке
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+    \newcommand{\productname}{Virtual Simulator for Practical Skills in Diagnostic Ultrasonography}
+
+    %---Определение значения переменных не зависящих от типа симулятора---
+
+    %---Определение переменных зависящих от типа симулятора---
+    \ifcase \typesimulator
+    %{Базовая модификация} 
+
+    \newcommand{\producttype}{B.USD}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+       
+        Half-body manikin & \\ \hline
+        Transthoracic ultrasonic transducer imitator & \\ \hline
+        Transabdominal ultrasonic transducer imitator & \\ \hline
+        Linear array ultrasonic transducer imitator & \\ \hline
+        Transvaginal ultrasonic transducer imitator & \\ \hline
+        Transesophageal ultrasonic transducer imitator & \\ \hline
+        Electromagnetic tracker with sensor & \\ \hline
+        Laptop & \\ \hline
+        Mouse & \\ \hline
+        USB key & \\ \hline
+        Power strip & \\ \hline
+        Transportation case & \\ \hline
+        Product Data Sheet & \\ \hline
+        User Manual & \\ \hline    
+        
+        &\\ \hline
+        %&\\ \hline
+        %&\\ \hline
+        %&\\ \hline
+        %&\\ \hline 
+    }
+
+    \or
+
+    %{Стандартная модификация}
+    \newcommand{\producttype}{S.USD}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+   
+
+          
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline    
+    }
+    \or
+
+    %{Гибридная модификация} 
+    \newcommand{\producttype}{H.USD}
+
+    %---Комплектация---
+    \newcommand{\productequip}
+    {
+        
+       
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline
+        &\\ \hline 
+    }    
+  
+    
+    \or 
+
+    % Ручная модификация
+    \newcommand{\producttype}{Б.ХХХ}
+
+
+    \newcommand{\producttechchar}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+    }
+    \newcommand{\productequip}
+    {
+        Поле 1  & 1 \\ \hline 
+        Поле 2  & 2 \\ \hline %название не очень
+        Поле 3  & 3 \\ \hline 
+        Технический паспорт	& 1 \\ \hline
+        Руководство по эксплуатации	& 1 \\ \hline
+    }  
+    \fi
+    %---Определение переменных зависящих от типа симулятора--- 
+
+\fi
+
+
+
+
+
+
+
+
+
+
+

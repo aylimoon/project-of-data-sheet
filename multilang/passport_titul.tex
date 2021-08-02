@@ -1,0 +1,140 @@
+\newgeometry{
+left=2.5cm,
+right=2.5cm,
+top=6cm,
+bottom=1.5cm,
+headheight=0cm,
+footskip=1cm,}
+\fancyhead{}
+%\newpagecolor{PageColorGround}\afterpage{\restorepagecolor} % изменяет цвет фона титульной страницы
+
+%\IsLngRusfalse
+\ifIsLngRus  % русский язык
+{
+    \begin{figure}[h]
+        %\includegraphics[width=0.77\linewidth]{images/\imagelogo}
+        \includegraphics[width=1\linewidth]{images/\imagelogo}
+    \end{figure}
+
+    \vspace*{\fill}
+
+    \noindent
+    \Huge\textbf{\textcolor{TradeMarkNameOneColor}{
+        ТЕХНИЧЕСКИЙ\\ 
+        ПАСПОРТ ИЗДЕЛИЯ
+    }}\par
+    
+    \vspace*{\fill}
+    \vspace*{\fill}
+    
+    \begin{flushleft}
+        
+        \noindent                   
+        \Large\textbf{\textcolor{TradeMarkNameOneColor}{
+            Симулятор~\producttype        
+        }}\par
+    
+        \vspace*{\fill}
+    
+        \noindent         
+        \Large\textbf{\textcolor{clColontitulText}{
+            \productname        
+        }}\par
+                 
+    \end{flushleft}
+         
+    \vspace*{\fill}
+    \begin{flushright}
+        %{\Large\textbf{\textcolor[RGB]{0, 65, 153}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}}}\\
+        %{\large\textbf{\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}\par}    
+        %{\large\textbf{\textcolor[RGB]{0, 65, 153}{LapVision}~\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}}  
+        %{\large\textbf{\textcolor[RGB]{0, 65, 153}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}~\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}}  
+        %{\large\textbf{\textcolor{white}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}~\textcolor{white}{\producttrademarktype}}}  
+        \producttrademarknametitul
+    \end{flushright}
+    \vspace*{\fill}
+
+    \ifdefined \demoflag %демонстрационное оборудование
+    \begin{center}
+        \large\textbf{\textcolor{TradeMarkNameOneColor}{Демонстрационное оборудование}}
+    \end{center}
+    \fi
+
+    \ifdefined \showflag %Выставочный образец
+    \begin{center}
+        \large\textbf{\textcolor{TradeMarkNameOneColor}{Выставочное оборудование}}
+    \end{center}
+    \fi
+
+    \pagebreak
+}
+\fi
+
+%\IsLngEngfalse
+\ifIsLngEng  % английский язык
+{
+    
+    \begin{figure}[h]
+        %\includegraphics[width=0.77\linewidth]{images/\imagelogo}
+        \includegraphics[width=1\linewidth]{images/\imagelogo}
+    \end{figure}
+
+    \vspace*{\fill}
+
+    \noindent
+    \Huge\textbf{\textcolor{TradeMarkNameOneColor}{
+        PRODUCT\\ 
+        DATA SHEET
+    }}\par
+    
+    \vspace*{\fill}
+    \vspace*{\fill}
+    
+    \begin{flushleft}
+        
+        \noindent                   
+        \Large\textbf{\textcolor{TradeMarkNameOneColor}{
+            Simulator~\producttype        
+        }}\par
+    
+        \vspace*{\fill}
+    
+        \noindent         
+        \Large\textbf{\textcolor{clColontitulText}{
+            \productname        
+        }}\par
+                 
+    \end{flushleft}
+         
+    \vspace*{\fill}
+    \begin{flushright}
+        %{\Large\textbf{\textcolor[RGB]{0, 65, 153}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}}}\\
+        %{\large\textbf{\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}\par}    
+        %{\large\textbf{\textcolor[RGB]{0, 65, 153}{LapVision}~\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}}  
+        %{\large\textbf{\textcolor[RGB]{0, 65, 153}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}~\textcolor[RGB]{0, 65, 153}{\producttrademarktype}}}  
+        %{\large\textbf{\textcolor{white}{Lap}\textcolor[RGB]{240, 124, 0}{Vision}~\textcolor{white}{\producttrademarktype}}}  
+        \producttrademarknametitul
+    \end{flushright}
+    \vspace*{\fill}
+
+    \ifdefined \demoflag
+    \begin{center}
+        \large\textbf{\textcolor{TradeMarkNameOneColor}{Demo Unit}}
+    \end{center}
+    \fi
+
+    \ifdefined \showflag %Выставочный образец
+    \begin{center}
+        \large\textbf{\textcolor{TradeMarkNameOneColor}{Showpiece}}
+    \end{center}
+    \fi
+
+    \pagebreak
+}
+\fi
+
+\restoregeometry
+
+\mbox{}
+\thispagestyle{empty}
+\newpage

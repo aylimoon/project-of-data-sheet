@@ -1,0 +1,150 @@
+\newif\ifIsEnsim\IsEnsimtrue%взаимоисключающие с vision и med
+\newif\ifIsMed\IsMedfalse  %взаимоисключающие с vision и ensim
+\newif\ifIsVision\IsVisionfalse %взаимоисключающие с med и ensim
+
+
+\newif\ifIsNO\IsNOfalse %когда нужно лишнее убрать
+
+\newif\ifIsProductdata\IsProductdatafalse % Использование данных о продукте по умолчанию (если не сгенерирован файл о данных продукта из задачи)
+
+\newif\ifIsLngRus\IsLngRustrue % Флаг использования рускоязычных секций из файлов
+%\IsLngRusfalse % отключение языковой секции (рус) при комиляции   % должно быть закомичено при компиляцией bat файлом
+\newif\ifIsLngEng\IsLngEngtrue % Флаг использования англоязычных секций из файлов
+%\IsLngEngfalse  % отключение языковой секции (англ) при комиляции % должно быть закомичено при компиляцией bat файлом
+
+% флаги и настройки не удалять, просто комментировать что нужно отключить
+\documentclass[
+10pt, 
+twoside  % тут можно отключить двустороннюю печать
+]{extarticle}
+
+
+
+
+ \usepackage{ifthen} %для макрофлагов
+ \usepackage{longtable} % для таблиц на нескольких страницах
+\usepackage{graphicx} % Подключаем пакет работы с графикой
+ \usepackage[usenames]{color} % этот и следующий пакеты для работы с цветом
+ \usepackage{fancyhdr} % колонтитулы
+ \usepackage{indentfirst} % отступ для первого абзаца главы или параграфа
+% \usepackage{currfile}
+ \usepackage{colortbl} %раскрашивать колонки в таблица
+ \usepackage{multirow} %картинки в ряд (для floatrow)
+ \usepackage{titlesec}
+ \usepackage{caption}
+ \usepackage{subcaption}
+ \usepackage{floatrow} % управление плавающими объектами (картинки, таблицы)
+ \usepackage{calc} % изменение размера для подписи, совместно с floatrow
+ \newcommand{\sectionbreak}{\clearpage}
+\usepackage{color}
+\usepackage{textcomp} % специальные символы
+\usepackage{afterpage} % команда после страницы
+\usepackage{pagecolor}% цвет страницы
+
+%--------Формат подписей к рисункам и таблицам--------
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{dot}{. }
+\captionsetup{justification=centering, labelsep=dot}
+%--------Формат подписей к рисункам и таблицам--------
+
+%--------ШРИФТ--------
+\fontsize{10pt}{14pt}\selectfont % установка размера шрифта для всего документа
+\usepackage{setspace}\onehalfspacing % интервал полуторный
+%\renewcommand{\rmdefault}{ptm} % использовать Times New Roman
+% \renewcommand{\familydefault}{\sfdefault} % Latin Modern Sans Serif шрифт  \ не включать корежит шрифт Arial на английском
+
+\frenchspacing %обычные пробелы после знаков препинания, а не увеличенные дефолтные как в англо-саксонской типографике
+%--------ШРИФТ--------
+
+
+%----------------SETTINGS----------------
+\def\pathtemplate{multilang} % папка с файлами шаблона проекта
+\def\pathvariables{multilang/variables} % папка с файлами определяющими переменные на все симуляторы
+
+\usepackage{polyglossia}   %% загружает пакет многоязыковой вёрстки
+
+% Язык менять только тут, раскомментировать нужный, остальный закомментировать
+
+\ifdefined\lngflag % \lngflag выбирает язык загрузки и определяется через bat файл, значение 0 - русский язык, 1- английский
+    \ifcase\lngflag      
+        \setdefaultlanguage{russian} % определение языка
+        \setotherlanguage{english}
+        \IsLngEngfalse % отключение англ информации 
+    \else
+        \setdefaultlanguage{english} % определение языка  
+        \setotherlanguage{russian}      
+        \IsLngRusfalse % отключение рус информации
+    \fi 
+\else
+
+\setdefaultlanguage{russian} % установка языка
+%\setdefaultlanguage{english} % установка языка%\def\lng{russian} 
+%\def\lng{english} % Язык (при отладке в VSC) менять только тут, раскомментировать нужный, остальный закомментировать
+\fi
+
+% \usepackage{xltxtra}
+
+% Основной шрифт документа
+\defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+\setmainfont{Arial}
+%\setmainfont{Times New Roman}
+%\newfontfamily\cyrillicfont{Arial}
+\newfontfamily{\cyrillicfontsf}{Arial}
+%\newfontfamily{\cyrillicfontsf}{Times New Roman}
+%----------------SETTINGS----------------
+
+
+
+
+
+%--------ПОЛЯ ЛИСТА--------
+\usepackage[
+a5paper,
+left=2.5cm,
+right=1.5cm,
+top=1.5cm,
+bottom=1.5cm,
+headheight=1.62cm,
+headsep=0.5cm,
+footskip=1.5cm,
+includehead, includefoot,
+%showframe % УДОБНАЯ ВЕЩЬ, но не забыть закоментить перед релизом
+]{geometry}
+%--------ПОЛЯ ЛИСТА--------
+
+%--------Constants--------
+% \ifIsEnsim
+% \definecolor{clColontitulLine}{rgb}{0, 0.44, 0.72}
+%\definecolor{clColontitulText}{rgb}{0, 0.44, 0.72}
+\definecolor{clColontitulText}{RGB}{0, 65, 153}
+
+% \else
+%\definecolor{clColontitulLine}{rgb}{0.14, 0.14, 0.14}
+\definecolor{clColontitulLine}{RGB}{0, 65, 153}
+\definecolor{PageColorGround}{RGB}{0, 65, 153}
+
+\definecolor{TradeMarkNameOneColor}{RGB}{0, 65, 153}  % цвет букв на титульном листе % темно синий 
+%\definecolor{TradeMarkNameOneColor}{RGB}{255,255,255} % белый
+\definecolor{TradeMarkNameTwoColor}{RGB}{240, 124, 0} % оранжевый
+
+% \fi
+% \def\uColontitulLineW{2mm}
+\def\uColontitulLineW{1mm}
+%--------Constants--------
+
+%--------Bookmarks(ссылки/оглавление)--------
+\usepackage[
+colorlinks, 
+urlcolor=clColontitulLine, 
+linkcolor=clColontitulLine, 
+bookmarksopen=true,
+bookmarksnumbered=true,
+pagebackref=true,
+breaklinks=true,
+]{hyperref}
+%--------отключение переносов в тексте--------
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+%--------отключение переносов в тексте--------
